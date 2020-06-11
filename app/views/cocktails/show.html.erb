@@ -1,0 +1,9 @@
+<div class="container">
+  <h1>Details about <strong><%= @cocktail.name %></strong></h1>
+
+  <p>Cocktail object: <%= @cocktail %></p>
+  <p><%= @cocktail.doses  %></p> <!-- Stuck here - need to .each through the doses and print -->
+
+  <%= link_to "Back to Cocktails", cocktails_path  %>
+  <%= link_to "Add new dose", new_cocktail_dose_path(@cocktail)  %>
+</div>
