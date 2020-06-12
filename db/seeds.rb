@@ -22,15 +22,16 @@ final_array = []
 end
 puts "Successfully seeded ingredients in the database. :)"
 
-Ingredient.create(name: "lemon")
-Ingredient.create(name: "ice")
-Ingredient.create(name: "mint leaves")
-Ingredient.create(name: "Brown sugar")
+Ingredient.create(name: "Lemon")
+Ingredient.create(name: "Ice")
+Ingredient.create(name: "Mint Leaves")
+Ingredient.create(name: "Brown Sugar")
+Ingredient.create(name: "White Sugar")
 Ingredient.create(name: "Alcohol")
 
-Cocktail.create(name: "Mojito")
-Cocktail.create(name: "Bloody Mary")
-Cocktail.create(name: "Gin Tonic")
-Cocktail.create(name: "James Bond's Martini")
+# Cocktail.create(name: "Mojito")
+# Cocktail.create(name: "Bloody Mary")
+# Cocktail.create(name: "Gin Tonic")
+# Cocktail.create(name: "James Bond's Martini")
 
 puts "5. You have #{Ingredient.count} ingredients seeded "

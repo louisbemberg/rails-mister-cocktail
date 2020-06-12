@@ -7,9 +7,15 @@
 <div class="container">
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "cocktail1" %>);">
+      <% if cocktail.photo.attached? %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>');">
         <%= link_to cocktail.name, cocktail_path(cocktail) %>
-      </div>
+        </div>
+      <% else %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random);">
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+        </div>
+      <% end %>
     <% end %>
   </div>
   <h1> </h1>
