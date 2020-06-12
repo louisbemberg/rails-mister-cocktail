@@ -10,6 +10,7 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 puts "1 - Cleaning Database"
 Ingredient.destroy_all
+Cocktail.destroy_all
 
 puts "2. Opening JSON and parsing it into a ruby hash"
 json_string = open(url).read
