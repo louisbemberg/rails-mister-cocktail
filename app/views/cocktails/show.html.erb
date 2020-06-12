@@ -1,8 +1,12 @@
 <div class="container">
   <h1>Details about <strong><%= @cocktail.name %></strong></h1>
 
-  <p>Cocktail object: <%= @cocktail %></p>
-  <p><%= @cocktail.doses  %></p> <!-- Stuck here - need to .each through the doses and print -->
+<!--   <p>Cocktail object: <%= @cocktail %></p> -->
+  <% @cocktail.doses.each do |dose|  %>
+  <%= dose.description %>
+  <%= dose.ingredient.name %>
+  <%= link_to 'Delete', dose_path(dose), method: :delete, data: {confirm: "Are you sure you want to delete?"}  %>
+  <% end %>
 
   <%= link_to "Back to Cocktails", cocktails_path  %>
   <%= link_to "Add new dose", new_cocktail_dose_path(@cocktail)  %>
