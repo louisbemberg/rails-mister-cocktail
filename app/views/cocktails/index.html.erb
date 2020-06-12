@@ -1,23 +1,19 @@
 <div class="container">
-  <h1>Thirsty Thursdays</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @cocktails.each do |cocktail| %>
-      <tr>
-        <td><%= cocktail.name %></td>
-        <td><%= link_to 'Show', cocktail_path(cocktail) %> </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-  <div class="btn btn-info">
-    <%= link_to 'New Cocktail', new_cocktail_path %>
+  <div class="banner">
+    <h1>Let's get a drink.</h1>
   </div>
+</div>
+<h1> </h1>
+<div class="container">
+  <div class="cards">
+    <% @cocktails.each do |cocktail| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path "cocktail1" %>);">
+        <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      </div>
+    <% end %>
+  </div>
+  <h1> </h1>
+    <div class="wide-button btn btn-info center">
+      <%= link_to 'New Cocktail', new_cocktail_path %>
+    </div>
 </div>
