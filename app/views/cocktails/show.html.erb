@@ -8,6 +8,7 @@
   <%= link_to 'Delete', dose_path(dose), method: :delete, data: {confirm: "Are you sure you want to delete?"}  %>
   <% end %>
 
+  <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-info"%> <br>
   <%= link_to "Back to Cocktails", root_path  %>
-  <%= link_to "Add new dose", new_cocktail_dose_path(@cocktail)  %>
+
 </div>
