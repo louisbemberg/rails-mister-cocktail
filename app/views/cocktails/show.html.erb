@@ -2,13 +2,18 @@
   <h1>Details about <strong><%= @cocktail.name %></strong></h1>
 
 <!--   <p>Cocktail object: <%= @cocktail %></p> -->
-  <% @cocktail.doses.each do |dose|  %>
-  <%= dose.description %>
-  <%= dose.ingredient.name %>
-  <%= link_to 'Delete', dose_path(dose), method: :delete, data: {confirm: "Are you sure you want to delete?"}  %>
-  <% end %>
-
+  <% count = 1 %>
+  <div class="dose-list">
+    <% @cocktail.doses.each do |dose|  %>
+      <div class="dose-item">
+        <p><%= count %>. <%= dose.ingredient.name %> - <%= dose.description %>
+        <%= link_to 'Delete', dose_path(dose), method: :delete, data: {confirm: "Are you sure you want to delete?"}  %>
+        </p>
+      </div>
+      <% count += 1 %>
+    <% end %>
+  </div>
   <%= link_to "Add Ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-info"%> <br>
-  <%= link_to "Back to Cocktails", root_path  %>
+  <%= link_to "Back to Cocktails", cocktails_path  %>
 
 </div>
