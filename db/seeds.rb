@@ -9,9 +9,10 @@ require 'open-uri'
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 
 puts "1 - Cleaning Database"
+Dose.destroy_all
 Ingredient.destroy_all
 Cocktail.destroy_all
-Dose.destroy_all
+
 
 puts "2. Opening JSON and parsing it into a ruby hash"
 json_string = open(url).read
@@ -37,10 +38,10 @@ puts "Creating Some Cocktails..."
 cocktail_1 = Cocktail.new(name: "Lou's Mojito")
 cocktail_1_picture = URI.open('https://images.unsplash.com/photo-1566733971017-f6a46e832e95?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80')
 cocktail_1.photo.attach(io: cocktail_1_picture, filename: 'mojito.png', content_type: 'image/png')
-dose1_1 = Dose.create(description: "Add four or five mint leaves for good measure", cocktail_id: cocktail_1.id, ingredient_id: Ingredient.find_by(name: "Mint Leaves").id)
-dose1_2 = Dose.create(description: "Add a hefty amount of brown sugar - way more than you think.", cocktail_id: cocktail_1.id, ingredient_id: Ingredient.find_by(name: "Brown Sugar").id)
-dose1_3 = Dose.create(description: "Add ice and fill the glass with 1/3 of Rum. You can use 1-3 types of rums combined. Only one works too!", cocktail_id: cocktail_1.id, ingredient_id: Ingredient.find_by(name: "Rum").id)
-dose1_4 = Dose.create(description: "Top the rest of the drink with Sprite. You can also use sparkling water for a less sugary feel.", cocktail_id: cocktail_1.id, ingredient_id: Ingredient.find_by(name: "Sprite").id)
+dose1_1 = Dose.create!(description: "Add four or five mint leaves for good measure", cocktail: cocktail_1, ingredient: Ingredient.find_by(name: "Mint Leaves"))
+dose1_2 = Dose.create!(description: "Add a hefty amount of brown sugar - way more than you think.", cocktail: cocktail_1, ingredient: Ingredient.find_by(name: "Brown Sugar"))
+dose1_3 = Dose.create!(description: "Add ice and fill the glass with 1/3 of Rum. You can use 1-3 types of rums combined5", cocktail: cocktail_1, ingredient: Ingredient.find_by(name: "Rum"))
+dose1_4 = Dose.create!(description: "Top the rest of the drink with Sprite. You can also use sparkling water for a less sugary feel.", cocktail: cocktail_1, ingredient: Ingredient.find_by(name: "Sprite"))
 cocktail_1.save!
 
 cocktail_2 = Cocktail.new(name: "Ellyn's Whiskey")

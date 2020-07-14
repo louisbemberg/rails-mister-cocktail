@@ -12,21 +12,24 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
-.card-category a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
+
+
+.card-category:hover{
+  transform: scale(1.02);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.4);
+  filter: saturate(150%);
 }
 
-.card-category :hover{
-  color: yellow;
-}
 
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
+}
+
+.cards a:hover {
+  text-decoration: none;
 }
 
 // Smallest device

@@ -9,9 +9,11 @@
     <div class="cards">
       <% @cocktails.each do |cocktail| %>
         <% if cocktail.photo.attached? %>
-          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>');">
-          <%= link_to cocktail.name, cocktail_path(cocktail) %>
-          </div>
+          <%= link_to cocktail_path(cocktail) do %>
+            <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>');">
+            <h4><%= cocktail.name %></h4>
+            </div>
+          <% end %>
         <% else %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://source.unsplash.com/random);">
           <%= link_to cocktail.name, cocktail_path(cocktail) %>

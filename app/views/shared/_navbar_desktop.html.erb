@@ -1,0 +1,15 @@
+<div class="navbar-desktop">
+  <div class="container d-flex justify-content-between align-items-center">
+    <%= link_to root_path do  %>
+      <i class="fas fa-glass-martini-alt"></i>
+    <% end %>
+    <div class="navbar-links d-flex justify-content-between align-items-center">
+      <%= link_to cocktails_path do  %>
+        <p>See All Cocktails</p>
+      <% end %>
+      <%= link_to new_cocktail_path do  %>
+        <p>Add New Cocktail</p>
+      <% end %>
+    </div>
+  </div>
+</div>
