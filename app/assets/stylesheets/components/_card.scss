@@ -16,6 +16,12 @@
   }
 }
 
+.card-show {
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  width: 100%;
+}
 
 .card-category:hover{
   transform: scale(1.02);
